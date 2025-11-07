@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Ensures proper rendering and touch zooming on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohith S - Full Stack Developer</title>
+<!-- Google Fonts for a professional look -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Icon Library (Font Awesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* --- Global Styles & Variables --- */
+:root {
+--primary-color: #007bff; /* Bright Blue */
+--secondary-color: #6c757d; /* Gray */
+--bg-color: #ffffff; /* White Background */
+--surface-color: #f8f9fa; /* Light Gray Surface */
+--text-color: #343a40; /* Dark Text */
+--heading-color: #212529; /* Darker Heading */
+--white: #fff;
+--border-color: #dee2e6;
+--shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+--shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+/* scroll-behavior: smooth; REMOVED: Will be handled by JavaScript */
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-color);
+line-height: 1.7;
+overflow-x: hidden;
+}
+
+.container {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+img {
+max-width: 100%;
+height: auto;
+border-radius: 10px;
+}
+
+/* --- Utility Classes --- */
+.btn {
+display: inline-block;
+padding: 0.75rem 1.5rem;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 600;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+}
+
+.btn-primary {
+background-color: var(--primary-color);
+color: var(--white);
+}
+
+.btn-primary:hover {
+background-color: #0056b3;
+transform: translateY(-2px);
+}
+
+.btn-secondary {
+background-color: transparent;
+color: var(--primary-color);
+border: 2px solid var(--primary-color);
+margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+background-color: var(--primary-color);
+color: var(--white);
+transform: translateY(-2px);
+}
+
+.section-title {
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--heading-color);
+text-align: center;
+margin-bottom: 3rem;
+position: relative;
+}
+
+.section-title::after {
+content: '';
+display: block;
+width: 60px;
+height: 4px;
+background: var(--primary-color);
+margin: 0.5rem auto 0;
+border-radius: 2px;
+}
+
+/* --- Header & Navigation --- */
+header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background-color: var(--white);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+background-color: rgba(255, 255, 255, 0.95);
+/* backdrop-filter: blur(5px); */ /* Can cause performance issues, optional */
+}
+
+nav.container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 70px;
+}
+
+.logo {
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--heading-color);
+text-decoration: none;
+}
+
+.nav-links {
+display: flex;
+list-style: none;
+}
+
+.nav-links li {
+margin-left: 2rem;
+}
+
+.nav-links a {
+text-decoration: none;
+color: var(--text-color);
+font-weight: 600;
+position: relative;
+padding-bottom: 0.25rem;
+}
+
+.nav-links a::after {
+content: '';
+display: block;
+width: 0;
+height: 2px;
+background: var(--primary-color);
+transition: width 0.3s ease;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+width: 100%;
+}
+
+.menu-toggle {
+display: none;
+font-size: 1.5rem;
+cursor: pointer;
+color: var(--heading-color);
+}
+
+/* --- General Section Styling --- */
+section {
+padding: 6rem 0;
+/* scroll-margin-top: 70px; REMOVED: Will be handled by JavaScript */
+}
+
+/* --- About Me Section (Home) --- */
+.about-me {
+padding-top: 10rem; /* Extra padding for the first section */
+}
+section:nth-child(even) {
+background-color: var(--surface-color);
+}
+.about-content {
+display: flex;
+align-items: center;
+gap: 3rem;
+}
+
+.about-image {
+flex-basis: 35%;
+min-width: 250px; /* Ensures image doesn't get too small */
+box-shadow: var(--shadow);
+border-radius: 10px;
+}
+
+.about-text {
+flex-basis: 65%;
+}
+
+.about-text h3 {
+font-size: 1.75rem;
+font-weight: 600;
+color: var(--heading-color);
+margin-bottom: 1rem;
+}
+
+.about-text p {
+margin-bottom: 1rem;
+}
+
+.contact-links {
+margin-top: 1.5rem;
+}
+
+.contact-links a {
+font-size: 1.75rem;
+color: var(--heading-color);
+margin-right: 1.5rem;
+transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+color: var(--primary-color);
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+gap: 1.5rem;
+}
+
+.skill-item {
+background: var(--white);
+padding: 1.5rem;
+border-radius: 10px;
+text-align: center;
+font-weight: 600;
+box-shadow: var(--shadow);
+transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-hover);
+}
+
+.skill-item i {
+font-size: 2.5rem;
+color: var(--primary-color);
+display: block;
+margin-bottom: 0.75rem;
+}
+
+/* --- Experience & Education (Timeline) --- */
+.timeline {
+position: relative;
+max-width: 750px;
+margin: 0 auto;
+}
+
+.timeline::after {
+content: '';
+position: absolute;
+width: 4px;
+background-color: var(--primary-color);
+top: 0;
+bottom: 0;
+left: 50%;
+margin-left: -2px;
+}
+
+.timeline-item {
+padding: 1rem 3rem;
+position: relative;
+width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+left: 0;
+padding-right: 4rem;
+}
+
+.timeline-item:nth-child(even) {
+left: 50%;
+padding-left: 4rem;
+}
+
+.timeline-dot {
+content: '';
+position: absolute;
+width: 16px;
+height: 16px;
+background-color: var(--white);
+border: 4px solid var(--primary-color);
+top: 24px;
+border-radius: 50%;
+z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+left: -8px;
+}
+
+.timeline-date {
+font-size: 0.9rem;
+font-weight: 600;
+color: var(--primary-color);
+margin-bottom: 0.5rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+text-align: right;
+}
+
+.timeline-content {
+background: var(--white);
+padding: 1.5rem;
+border-radius: 10px;
+box-shadow: var(--shadow);
+position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+text-align: right;
+}
+
+.timeline-content h3 {
+font-size: 1.25rem;
+font-weight: 600;
+color: var(--heading-color);
+}
+
+.timeline-content .company {
+font-style: italic;
+color: var(--secondary-color);
+margin-bottom: 0.75rem;
+}
+
+.timeline-content ul {
+list-style-position: inside;
+padding-left: 0;
+margin-top: 0.5rem;
+}
+
+.timeline-content ul li {
+margin-bottom: 0.25rem;
+}
+
+/* --- Qiskit Advocate Section --- */
+.qiskit-content {
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+align-items: center;
+}
+
+.qiskit-text {
+flex: 2;
+min-width: 300px;
+}
+
+.qiskit-text h3 {
+font-size: 1.75rem;
+font-weight: 600;
+color: var(--heading-color);
+margin-bottom: 1rem;
+}
+
+.qiskit-text p {
+margin-bottom: 1rem;
+}
+
+.qiskit-images {
+flex: 1;
+display: flex;
+gap: 1.5rem;
+flex-direction: column;
+min-width: 280px;
+}
+
+.qiskit-image-placeholder {
+background: #e0e0e0;
+border-radius: 10px;
+box-shadow: var(--shadow);
+overflow: hidden; /* Ensures image respects border radius */
+}
+.qiskit-image-placeholder img {
+display: block; /* Removes bottom space under image */
+}
+
+.qiskit-image-placeholder .caption {
+text-align: center;
+font-style: italic;
+color: var(--secondary-color);
+padding: 0.75rem;
+background-color: var(--surface-color);
+margin: 0;
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+.project-card {
+background: var(--white);
+border-radius: 10px;
+box-shadow: var(--shadow);
+overflow: hidden;
+transition: all 0.3s ease;
+display: flex;
+flex-direction: column;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-hover);
+}
+
+.project-content {
+padding: 1.5rem;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+}
+
+.project-title {
+font-size: 1.25rem;
+font-weight: 600;
+color: var(--heading-color);
+margin-bottom: 0.5rem;
+}
+
+.project-card p {
+font-size: 0.95rem;
+margin-bottom: 1rem;
+flex-grow: 1;
+}
+
+.project-tags {
+margin-top: auto;
+}
+
+.project-tags span {
+display: inline-block;
+background-color: var(--surface-color);
+color: var(--primary-color);
+font-weight: 600;
+padding: 0.25rem 0.75rem;
+border-radius: 50px;
+font-size: 0.8rem;
+margin-right: 0.5rem;
+margin-top: 0.5rem;
+}
+
+/* --- Contact Section --- */
+.contact-content {
+max-width: 600px;
+margin: 0 auto; /* Center the single contact info block */
+text-align: center;
+}
+.contact-info {
+width: 100%;
+}
+
+.contact-info h3 {
+font-size: 1.75rem;
+font-weight: 600;
+color: var(--heading-color);
+margin-bottom: 1rem;
+}
+
+.contact-info p {
+margin-bottom: 1.5rem;
+}
+
+.contact-info ul {
+list-style: none;
+display: inline-block; /* Allow centering */
+text-align: left; /* Align list content left */
+}
+
+.contact-info li {
+display: flex;
+align-items: center;
+margin-bottom: 1rem;
+font-size: 1rem;
+}
+
+.contact-info i {
+font-size: 1.25rem;
+color: var(--primary-color);
+width: 30px;
+}
+
+.contact-info a {
+color: var(--text-color);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+color: var(--primary-color);
+}
+
+/* --- Footer --- */
+footer {
+background: var(--heading-color);
+color: var(--surface-color);
+text-align: center;
+padding: 1.5rem 0;
+margin-top: 3rem;
+}
+
+/* --- Animations --- */
+.about-content,
+.skills-grid,
+.timeline-item,
+.qiskit-content,
+.projects-grid,
+.contact-content {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show-animate {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+.container {
+padding: 0 1.5rem;
+}
+
+.nav-links {
+position: fixed;
+top: 70px;
+left: 0;
+width: 100%;
+height: calc(100vh - 70px);
+background: var(--white);
+flex-direction: column;
+align-items: center;
+padding-top: 2rem;
+transform: translateX(100%);
+transition: transform 0.3s ease-in-out;
+}
+
+.nav-links.nav-active {
+transform: translateX(0);
+}
+
+.nav-links li {
+margin: 1rem 0;
+}
+
+.menu-toggle {
+display: block;
+}
+.about-me {
+padding-top: 7rem; /* Adjust padding for mobile */
+}
+
+.about-content {
+flex-direction: column;
+text-align: center;
+}
+
+.contact-links {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+}
+.contact-links a {
+margin-right: 0;
+}
+
+.timeline::after {
+left: 31px;
+}
+
+.timeline-item {
+width: 100%;
+padding-left: 70px;
+padding-right: 25px;
+}
+
+.timeline-item:nth-child(odd) {
+left: 0;
+text-align: left;
+}
+.timeline-item:nth-child(odd) .timeline-date {
+text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+left: 0;
+padding-left: 70px;
+}
+.timeline-item:nth-child(odd) .timeline-content {
+text-align: left;
+}
+
+.timeline-dot {
+left: 23px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+left: 23px;
+}
+}
+
+@media (max-width: 480px) {
+.section-title {
+font-size: 2rem;
+}
+
+.about-me {
+padding-top: 6rem;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Header & Navigation -->
+<header>
+<nav class="container">
+<a href="#home" class="logo">Rohith S.</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#qiskit">Qiskit</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="menu-toggle">
+<i class="fas fa-bars"></i>
+</div>
+</nav>
+</header>
+
+<main>
+<!-- About Section (ID="home") -->
+<section id="home" class="about-me">
+<div class="container">
+<h2 class="section-title">About Me</h2>
+<div class="about-content">
+<div class="about-image">
+<!-- Placeholder for your photo -->
+<img src="person2.jpg" alt="Rohith S Profile Picture">
+</div>
+<div class="about-text">
+<h3>Hello! I'm Rohith.</h3>
+<p>I am a passionate Full Stack Developer with a comprehensive skill set honed through a variety of challenging projects. I'm currently a second-year Integrated M.Tech student at SSN College of Engineering, specializing in Computer Science.</p>
+<p>My journey in tech is driven by a desire to build efficient, scalable, and user-friendly applications. From developing full-stack boat rental platforms for international clients to winning national hackathons, I am always eager to tackle new problems and learn new technologies.</p>
+<div class="contact-links">
+<a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="mailto:rohithoutlook.id@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+<!-- Add GitHub link here when you have one -->
+<!-- <a href="#" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a> -->
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="skills">
+<div class="container">
+<h2 class="section-title">Technical Skills</h2>
+<div class="skills-grid">
+<div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+<div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+<div class="skill-item"><i class="fab fa-js-square"></i> JavaScript</div>
+<div class="skill-item"><i class="fab fa-react"></i> ReactJS</div>
+<div class="skill-item"><i class="fab fa-node-js"></i> NodeJS</div>
+<div class="skill-item"><i class="fas fa-server"></i> ExpressJS</div>
+<div class="skill-item"><i class="fab fa-python"></i> Python</div>
+<div class="skill-item"><i class="fas fa-mobile-alt"></i> Flutter</div>
+<div class="skill-item"><i class="fas fa-bold"></i> NextJS</div>
+<div class="skill-item"><i class="fas fa-code"></i> C & C++</div>
+</div>
+</div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience">
+<div class="container">
+<h2 class="section-title">Professional Experience</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-date">05/2024 - 07/2024</div>
+<div class="timeline-content">
+<h3>Intern (ReactJS Developer)</h3>
+<p class="company">Trainer's Company</p>
+<ul>
+<li>Developed a comprehensive hotel management application using ReactJS over a two-month period.</li>
+<li>The application was designed to help hotel owners and admins track overall performance, including check-ins, check-outs, total bookings, and room availability.</li>
+<li>Successfully completed the development of a functional webpage with all essential features.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Qiskit Advocate Section -->
+<section id="qiskit" class="qiskit-advocate">
+<div class="container">
+<h2 class="section-title">Qiskit Advocate</h2>
+<div class="qiskit-content">
+<div class="qiskit-text">
+<h3>IBM Quantum - Qiskit Advocate</h3>
+<p>I am a proud <strong>Qiskit Advocate</strong>, a recognition awarded by IBM Quantum to passionate enthusiasts who actively contribute to the global quantum computing community. This program connects a network of developers, researchers, and educators dedicated to advancing the Qiskit open-source framework and sharing knowledge with others. As an Advocate, I engage with a network of experts, contribute to cutting-edge projects, and help educate the next generation of quantum developers.</p>
+<p>My journey to becoming an Advocate was solidified by earning the <strong>Quantum Excellence (Advanced) badge</strong>. This achievement is awarded to participants who demonstrate a deep understanding of quantum concepts and practical Qiskit skills, typically by successfully completing the advanced graded lab activities during the Qiskit Global Summer School. Earning this badge was a key prerequisite that demonstrated my commitment and technical proficiency, paving the way for my acceptance into the Advocate program.</p>
+</div>
+<div class="qiskit-images">
+<div class="qiskit-image-placeholder">
+<img src="badge.png" alt="Qiskit Project Demo Image">
+
+</div>
+<div class="qiskit-image-placeholder">
+<img src="socials_image.jpg" alt="Qiskit Excellence Certificate">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="projects">
+<div class="container">
+<h2 class="section-title">My Projects</h2>
+<div class="projects-grid">
+<!-- Project NEW -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">Groundwater Predictor</h3>
+<p>A mobile application to predict groundwater analysis, implementing an innovative ELM + Booster model integrated directly into the app.</p>
+<div class="project-tags">
+<span>Mobile App</span>
+<span>Machine Learning</span>
+<span>ELM + Booster</span>
+</div>
+</div>
+</div>
+
+<!-- Project 1 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">Boat Rental Website</h3>
+<p>A Full-Stack website for a international client's boat rental platform, with user friendly web platform developed 100% by individual work.</p>
+<div class="project-tags">
+<span>NextJS</span>
+<span>NodeJS</span>
+<span>ExpressJS</span>
+</div>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">Online Meeting Application</h3>
+<p>Won a National-level hackathon in India for this minimal online meeting app that solves traditional application issues.</p>
+<div class="project-tags">
+<span>Hackathon Winner</span>
+</div>
+</div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">SPB MHSS Website (React)</h3>
+<p>A modern, interactive website built with ReactJS, leveraging reusable components, state management, and React Hooks.</p>
+<div class="project-tags">
+<span>ReactJS</span>
+<span>Dynamic UI</span>
+</div>
+</div>
+</div>
+
+<!-- Project 4 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">Corporate Mobile Apps</h3>
+<p>Developed three mobile apps for a corporate company to improve workflow efficiency and management.</p>
+<div class="project-tags">
+<span>Flutter</span>
+<span>Kotlin</span>
+</div>
+</div>
+</div>
+
+<!-- Project 5 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">IOT Projects</h3>
+<p>Completed several projects using Arduino IDE, including a Leap Motion controller and an automatic watering system.</p>
+<div class="project-tags">
+<span>Arduino</span>
+<span>IoT</span>
+</div>
+</div>
+</div>
+
+<!-- Project 6 -->
+<div class="project-card">
+<div class="project-content">
+<h3 class="project-title">SPB MHSS Website (Static)</h3>
+<p>Developed the school's informational website, showcasing events and activities.</p>
+<div class="project-tags">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="education">
+<div class="container">
+<h2 class="section-title">Education</h2>
+<div class="timeline">
+<!-- Item 1 -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2024 - Present</div>
+<div class="timeline-content">
+<h3>5YI M.Tech, Computer Science</h3>
+<p class="company">SSN College of Engineering</p>
+<p>Currently a Second-Year Post Graduate Student.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2023 - 2024</div>
+<div class="timeline-content">
+<h3>Higher Secondary Graduate</h3>
+<p class="company">SPB MHSS</p>
+<p>Graduated with 93.84%.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+<div class="container">
+<h2 class="section-title">Get In Touch</h2>
+<div class="contact-content">
+<div class="contact-info">
+<h3>Let's build something great together.</h3>
+<p>I'm open to new opportunities and collaborations. Feel free to reach out.</p>
+<ul>
+<li><i class="fas fa-map-marker-alt"></i> Erode, TamilNadu</li>
+<!-- Phone number list item removed -->
+<li><i class="fas fa-envelope"></i> rohithoutlook.id@gmail.com</li>
+<li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank">linkedin.com/in/rohtihoutlook</a></li>
+</ul>
+</div>
+<!-- Contact form removed as requested -->
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>&copy; 2025 Rohith S. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+const header = document.querySelector('header');
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const allNavLinks = document.querySelectorAll('.nav-links li a');
+
+// 1. Mobile Menu Toggle
+menuToggle.addEventListener('click', () => {
+navLinks.classList.toggle('nav-active');
+// Toggle burger icon
+const icon = menuToggle.querySelector('i');
+icon.classList.toggle('fa-bars');
+icon.classList.toggle('fa-times');
+});
+
+// 2. Close mobile menu AND handle smooth scroll (MODIFIED)
+allNavLinks.forEach(link => {
+link.addEventListener('click', (event) => {
+event.preventDefault(); // Stop the default anchor jump
+const targetId = link.getAttribute('href'); // e.g., "#contact"
+const targetSection = document.querySelector(targetId);
+
+if (targetSection) {
+// Calculate position: section's top offset minus the header's height
+const headerHeight = header.offsetHeight;
+// Use getBoundingClientRect().top for more accurate position relative to viewport
+const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+// Perform the smooth scroll
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+
+// Close mobile menu if open
+if (navLinks.classList.contains('nav-active')) {
+navLinks.classList.remove('nav-active');
+const icon = menuToggle.querySelector('i');
+icon.classList.add('fa-bars');
+icon.classList.remove('fa-times');
+}
+});
+});
+
+// 3. Add shadow to header on scroll
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+header.classList.add('scrolled');
+} else {
+header.classList.remove('scrolled');
+}
+});
+
+// 4. Active Nav Link Highlighting on Scroll
+const sections = document.querySelectorAll('main section');
+window.addEventListener('scroll', () => {
+let current = 'home'; // Default to home
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.clientHeight;
+// Check if scroll position is within the section boundaries (with an offset)
+if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+current = section.getAttribute('id');
+}
+});
+
+allNavLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href').includes(current)) {
+link.classList.add('active');
+}
+});
+});
+
+// 5. Fade-in Animation on Scroll
+// Check if IntersectionObserver is supported
+if ('IntersectionObserver' in window) {
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('show-animate');
+} else {
+// Optional: remove to re-animate when scrolling back up
+// entry.target.classList.remove('show-animate'); 
+}
+});
+}, {
+threshold: 0.1 // Trigger when 10% of the element is visible
+});
+
+// Observe all elements with the animation classes
+const animatedElements = document.querySelectorAll(
+'.about-content, .skills-grid, .timeline-item, .qiskit-content, .projects-grid, .contact-content'
+);
+animatedElements.forEach(el => observer.observe(el));
+} else {
+// Fallback for older browsers: just show everything
+const animatedElements = document.querySelectorAll(
+'.about-content, .skills-grid, .timeline-item, .qiskit-content, .projects-grid, .contact-content'
+);
+animatedElements.forEach(el => el.classList.add('show-animate'));
+}
+
+});
+</script>
+</body>
+</html>
+
