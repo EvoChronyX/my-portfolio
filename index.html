@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohith S - Full Stack Developer</title>
+    <title>Rohith S - Full Stack Developer & Quantum Researcher</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -94,7 +92,7 @@
         }
 
         .container {
-            max-width: 1200px; /* Widened slightly for the larger navbar */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -109,7 +107,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 0.8rem 0; /* Increased padding */
+            padding: 0.8rem 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -123,7 +121,7 @@
             justify-content: space-between;
             align-items: center;
             height: 70px;
-            position: relative; /* Needed for absolute centering */
+            position: relative;
         }
 
         .logo {
@@ -135,26 +133,23 @@
             text-decoration: none;
             letter-spacing: -0.5px;
             white-space: nowrap;
-            z-index: 1002; /* Above center nav */
+            z-index: 1002;
         }
 
         /* Floating Island Navbar Design */
         .nav-links { 
             display: flex; 
             list-style: none;
-            /* Absolute centering for the "Floating Island" look */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            
-            /* Glass effect container */
             background: rgba(255, 255, 255, 0.6);
             padding: 0.5rem 0.5rem;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
-            gap: 0.5rem; /* Gap between items */
+            gap: 0.2rem;
         }
         
         .nav-links li { margin: 0; }
@@ -163,21 +158,19 @@
             text-decoration: none;
             color: var(--text-main);
             font-weight: 500;
-            font-size: 1.05rem; /* INCREASED FONT SIZE */
+            font-size: 0.95rem;
             position: relative;
-            padding: 0.6rem 1.2rem; /* Larger touch targets */
+            padding: 0.6rem 1rem;
             transition: all 0.3s ease;
             white-space: nowrap;
-            border-radius: 30px; /* Pill shape */
+            border-radius: 30px;
         }
 
-        /* Remove old underline effect */
         .nav-links a::after { display: none; }
 
-        /* New Hover & Active Effects */
         .nav-links a:hover { 
             color: var(--primary-color);
-            background: rgba(0, 123, 255, 0.1); /* Subtle pill background */
+            background: rgba(0, 123, 255, 0.1);
             transform: translateY(-2px);
         }
         
@@ -584,11 +577,10 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            /* Switch to Mobile Menu earlier because of larger text */
             .nav-links {
                 position: fixed;
-                top: 80px; /* Below new header height */
-                right: 0; left: auto; /* Reset left centering */
+                top: 80px;
+                right: 0; left: auto;
                 height: calc(100vh - 80px);
                 width: 100%;
                 background: rgba(255, 255, 255, 0.98);
@@ -599,19 +591,14 @@
                 gap: 2rem;
                 transform: translateX(100%);
                 transition: transform 0.4s ease;
-                
-                /* Remove pill style on mobile */
                 border-radius: 0;
                 border: none;
                 box-shadow: none;
                 padding: 0;
-                background: rgba(255, 255, 255, 0.98);
             }
             
             .nav-links.active { transform: translateX(0); }
             .menu-toggle { display: block; }
-            
-            /* Center logo on mobile if desired, or keep left */
             .logo { z-index: 1002; }
         }
 
@@ -626,19 +613,123 @@
             .contact-box { align-items: center; padding: 2rem; }
             .contact-item { flex-direction: column; text-align: center; gap: 0.5rem; }
         }
+
+        /* === TECHNICAL LANDSCAPE MAP (PRO) === */
+        .skills-map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .skills-map-wrapper {
+            position: relative;
+            width: 100%;
+            height: 580px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: var(--radius);
+            border: var(--glass-border);
+            box-shadow: inset 0 0 40px rgba(0, 123, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .skills-map-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(0, 123, 255, 0.18) 1.5px, transparent 1.5px),
+                linear-gradient(rgba(0, 123, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 123, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .constellation-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .constellation-svg line {
+            stroke: rgba(0, 123, 255, 0.25);
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+            animation: dash 30s linear infinite;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        .map-continent-label {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(0, 123, 255, 0.4);
+        }
+
+        .map-skill-node {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+
+        .map-skill-node:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: var(--primary-gradient);
+            box-shadow: 0 10px 25px rgba(0,123,255,0.4);
+        }
+
+        .map-skill-node i {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        .map-skill-node:hover i {
+            color: white;
+        }
+
+        .node-nameplate {
+            position: absolute;
+            bottom: -32px;
+            font-size: 0.7rem;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        .map-skill-node:hover .node-nameplate {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Floating Background Shapes -->
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
 
-    <!-- Header -->
     <header>
         <nav class="container">
             <a href="#home" class="logo">Rohith S.</a>
@@ -646,6 +737,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#qiskit">Qiskit</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
@@ -658,7 +750,6 @@
     </header>
 
     <main>
-        <!-- About / Home Section -->
         <section id="home" class="about-me">
             <div class="container about-content reveal">
                 <div class="about-image">
@@ -679,27 +770,21 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills">
             <div class="container">
-                <h2 class="section-title reveal">Technical Arsenal</h2>
-                <div class="skills-grid reveal">
-                    <div class="skill-item glass-card"><i class="fas fa-atom"></i> Qiskit</div>
-                    <div class="skill-item glass-card"><i class="fab fa-html5"></i> HTML</div>
-                    <div class="skill-item glass-card"><i class="fab fa-css3-alt"></i> CSS</div>
-                    <div class="skill-item glass-card"><i class="fab fa-js-square"></i> JavaScript</div>
-                    <div class="skill-item glass-card"><i class="fab fa-react"></i> ReactJS</div>
-                    <div class="skill-item glass-card"><i class="fab fa-node-js"></i> NodeJS</div>
-                    <div class="skill-item glass-card"><i class="fas fa-server"></i> ExpressJS</div>
-                    <div class="skill-item glass-card"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-item glass-card"><i class="fas fa-mobile-alt"></i> Flutter</div>
-                    <div class="skill-item glass-card"><i class="fas fa-bold"></i> NextJS</div>
-                    <div class="skill-item glass-card"><i class="fas fa-code"></i> C & C++</div>
+                <h2 class="section-title reveal">Technical Landscape Map</h2>
+                <div class="skills-map-container reveal">
+                    <div class="skills-map-wrapper" id="skillsMapLandscape">
+                        <svg class="constellation-svg" id="constellationSvg"></svg>
+                        <div class="map-continent-label" style="top:10%;left:10%">Languages</div>
+                        <div class="map-continent-label" style="top:10%;right:10%">Frameworks</div>
+                        <div class="map-continent-label" style="bottom:10%;left:10%">Tools</div>
+                        <div class="map-continent-label" style="bottom:10%;right:10%">Hardware</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience">
             <div class="container">
                 <h2 class="section-title reveal">Experience</h2>
@@ -712,8 +797,8 @@
                             <p class="company">Trainer's Company</p>
                             <ul>
                                 <li>Architected a hotel management dashboard using ReactJS.</li>
-                                <li>Implemented real-time tracking for check-ins, bookings, and revenue.</li>
-                                <li>Optimized UI/UX for seamless administrative workflows.</li>
+                                <li>Implemented real-time tracking for check-ins, bookings, and revenue workflows.</li>
+                                <li>Optimized UI/UX for seamless administrative data visibility.</li>
                             </ul>
                         </div>
                     </div>
@@ -721,7 +806,80 @@
             </div>
         </section>
 
-        <!-- Qiskit Section -->
+        <section id="research">
+            <div class="container">
+                <h2 class="section-title reveal">Research & Innovations</h2>
+                <div class="projects-grid reveal">
+                    
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Quantum Error Mitigation via PE-LINN</h3>
+                            <p>Developed an architectural framework to mitigate error rates in the NISQ (Noisy Intermediate-Scale Quantum) Era. By integrating a Physics-Embedded Liquid Neural Network model, this system maps out noise profiles dynamically to counteract qubit decoherence and gate infidelities.</p>
+                            <div class="project-tags">
+                                <span>Quantum AI</span>
+                                <span>NISQ Hardware</span>
+                                <span>Liquid Networks</span>
+                                <span>Qiskit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Evaluating Generative Quantum Advantage</h3>
+                            <p>Conducted a detailed, full-stack empirical study examining classical-to-quantum Generative Adversarial Network (GAN) architectures executed on real noisy quantum hardware. Investigated parameter-expressibility gaps and structural training speedups inherent to hybrid variational quantum circuits.</p>
+                            <div class="project-tags">
+                                <span>Quantum ML</span>
+                                <span>GAN Architectures</span>
+                                <span>Full-Stack Analysis</span>
+                                <span>IBM Quantum</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Neural Text-to-Piclo Translation</h3>
+                            <p>Built an end-to-end Neural Machine Translation (NMT) pipeline translating natural English strings directly into descriptive pictogram sequences by fine-tuning a BART model (139M parameters). Optimized tokenization sequences to improve cross-domain communication accuracy for AAC users.</p>
+                            <div class="project-tags">
+                                <span>NLP / NMT</span>
+                                <span>BART Fine-Tuning</span>
+                                <span>AAC Systems</span>
+                                <span>Transformers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3 class="project-title">UAV Smart Autonomous Navigation</h3>
+                            <p>Researching adaptive path-planning mathematical algorithms and edge collision-avoidance logic tailored for small Unmanned Aerial Vehicles (drones). The execution framework isolates minimal sensor-fusion pipelines to enable rapid inference directly on resource-constrained hardware.</p>
+                            <div class="project-tags">
+                                <span>Robotics</span>
+                                <span>Path Planning</span>
+                                <span>Optimization</span>
+                                <span>Sensor Fusion</span>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="project-card glass-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Medicinal Kit</h3>
+                            <p>Engineered an assistive IoT health-tech platform aimed at addressing the daily healthcare schedules of elderly and visually impaired individuals. Integrates precise automated schedules, auditory tracking buzzers, and a companion application layer for distributed monitoring.</p>
+                            <div class="project-tags">
+                                <span>Healthcare Technology</span>
+                                <span>Assistive Tech</span>
+                                <span>IoT Hardware</span>
+                                <span>Firmware</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <section id="qiskit">
             <div class="container">
                 <h2 class="section-title reveal">Qiskit Advocate</h2>
@@ -741,23 +899,12 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects">
             <div class="container">
                 <h2 class="section-title reveal">Featured Projects</h2>
                 <div class="projects-grid reveal">
                     
-                    <div class="project-card glass-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Quantum Error Mitigation</h3>
-                            <p>Research project on <strong>Quantum error mitigation via physics-embedded liquid neural networks</strong>. Explores advanced machine learning techniques to improve qubit fidelity.</p>
-                            <div class="project-tags">
-                                <span>Qiskit</span>
-                                <span>Quantum Physics</span>
-                                <span>Neural Networks</span>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="project-card glass-card">
                         <div class="project-content">
@@ -821,11 +968,12 @@
 
                     <div class="project-card glass-card">
                         <div class="project-content">
-                            <h3 class="project-title">SPB MHSS Portal</h3>
-                            <p>Interactive educational platform built with ReactJS, featuring dynamic scheduling, event galleries, and admin controls.</p>
+                            <h3 class="project-title">ATS Friendly Resume Generator</h3>
+                            <p>A comprehensive full-stack enterprise application built to optimize candidates' resumes.</p>
                             <div class="project-tags">
-                                <span>ReactJS</span>
-                                <span>Firebase</span>
+                                <span>Full Stack</span>
+                                <span>AI Processing</span>
+                                <span>ATS Parsing</span>
                             </div>
                         </div>
                     </div>
@@ -834,7 +982,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education">
             <div class="container">
                 <h2 class="section-title reveal">Education</h2>
@@ -861,7 +1008,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <div class="container">
                 <h2 class="section-title reveal">Get In Touch</h2>
@@ -891,7 +1037,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Rohith S. all rights reserved.</p>
+            <p>&copy; 2026 Rohith S. all rights reserved.</p>
         </div>
     </footer>
 
@@ -949,7 +1095,7 @@
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    if (window.pageYOffset >= (sectionTop - sectionHeight / 3)) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -978,6 +1124,72 @@
 
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
+        });
+
+        // === SKILL MAP ENGINE ===
+        const mapNodes = [
+            { id: 'python', name: 'Python', icon: 'fab fa-python', top: 18, left: 12 },
+            { id: 'c', name: 'C', icon: 'fas fa-code', top: 30, left: 8 },
+            { id: 'cpp', name: 'C++', icon: 'fas fa-code', top: 42, left: 12 },
+            { id: 'js', name: 'JavaScript', icon: 'fab fa-js', top: 25, left: 22 },
+            { id: 'html', name: 'HTML', icon: 'fab fa-html5', top: 38, left: 22 },
+            { id: 'css', name: 'CSS', icon: 'fab fa-css3-alt', top: 50, left: 18 },
+
+            { id: 'react', name: 'ReactJS', icon: 'fab fa-react', top: 15, left: 72 },
+            { id: 'next', name: 'NextJS', icon: 'fas fa-forward', top: 28, left: 82 },
+            { id: 'node', name: 'NodeJS', icon: 'fab fa-node-js', top: 35, left: 70 },
+            { id: 'express', name: 'ExpressJS', icon: 'fas fa-server', top: 48, left: 82 },
+            { id: 'flutter', name: 'Flutter', icon: 'fas fa-mobile-alt', top: 45, left: 65 },
+            { id: 'kotlin', name: 'Kotlin', icon: 'fas fa-code', top: 60, left: 75 },
+
+            { id: 'qiskit', name: 'Qiskit', icon: 'fas fa-atom', top: 70, left: 15 },
+            { id: 'git', name: 'Git', icon: 'fab fa-git-alt', top: 80, left: 25 },
+            { id: 'arduinoide', name: 'Arduino IDE', icon: 'fas fa-microchip', top: 65, left: 28 },
+            { id: 'linux', name: 'Linux', icon: 'fab fa-linux', top: 85, left: 12 },
+            { id: 'aws', name: 'AWS', icon: 'fab fa-aws', top: 75, left: 35 },
+            { id: 'mongo', name: 'MongoDB', icon: 'fas fa-database', top: 88, left: 35 },
+            { id: 'oracle', name: 'Oracle', icon: 'fas fa-database', top: 78, left: 5 },
+
+            { id: 'arduino', name: 'Arduino', icon: 'fas fa-microchip', top: 70, left: 70 },
+            { id: 'stm', name: 'STM Boards', icon: 'fas fa-microchip', top: 82, left: 82 },
+            { id: 'ibm', name: 'IBM Quantum', icon: 'fas fa-brain', top: 88, left: 65 }
+        ];
+
+        const links = [
+            ['js','react'], ['react','next'], ['node','express'],
+            ['js','node'], ['html','react'], ['css','react'],
+            ['node','mongo'], ['mongo','aws'], ['aws','oracle'],
+            ['git','react'], ['linux','node'], ['qiskit','ibm'],
+            ['arduino','node'], ['stm','arduino'], ['ibm','python'],
+            ['python','qiskit'], ['cpp','arduino'], ['c','stm']
+        ];
+
+        const landscape = document.getElementById("skillsMapLandscape");
+        const svg = document.getElementById("constellationSvg");
+
+        mapNodes.forEach(node => {
+            const div = document.createElement("div");
+            div.className = "map-skill-node";
+            div.style.top = node.top + "%";
+            div.style.left = node.left + "%";
+            div.innerHTML = `
+                <i class="${node.icon}"></i>
+                <div class="node-nameplate">${node.name}</div>
+            `;
+            landscape.appendChild(div);
+        });
+
+        links.forEach(([a,b]) => {
+            const n1 = mapNodes.find(n => n.id === a);
+            const n2 = mapNodes.find(n => n.id === b);
+            if (!n1 || !n2) return;
+
+            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", n1.left + "%");
+            line.setAttribute("y1", n1.top + "%");
+            line.setAttribute("x2", n2.left + "%");
+            line.setAttribute("y2", n2.top + "%");
+            svg.appendChild(line);
         });
     </script>
 </body>
