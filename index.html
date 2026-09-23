@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohith S - Full Stack Developer & Quantum Researcher</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         /* --- 1. Global Variables & Reset --- */
         :root {
@@ -15,29 +17,40 @@
             --primary-gradient: linear-gradient(135deg, #007bff 0%, #00d2ff 100%);
             --secondary-gradient: linear-gradient(135deg, #6c757d 0%, #aab7c4 100%);
             --bg-gradient: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-            
+
             --primary-color: #007bff;
             --text-main: #2d3436;
             --text-light: #636e72;
             --white: #ffffff;
-            
+
             /* Glassmorphism Variables */
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: 1px solid rgba(255, 255, 255, 0.5);
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
             --card-hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            
+
             --radius: 16px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--bg-gradient);
             color: var(--text-main);
             line-height: 1.7;
             overflow-x: hidden;
+            width: 100%;
             position: relative;
         }
 
@@ -49,6 +62,7 @@
             z-index: -1;
             animation: float 10s infinite alternate;
         }
+
         .shape-1 {
             top: -10%;
             left: -10%;
@@ -57,6 +71,7 @@
             background: rgba(0, 123, 255, 0.3);
             animation-delay: 0s;
         }
+
         .shape-2 {
             bottom: -10%;
             right: -10%;
@@ -65,6 +80,7 @@
             background: rgba(0, 210, 255, 0.3);
             animation-delay: -5s;
         }
+
         .shape-3 {
             top: 40%;
             left: 40%;
@@ -75,8 +91,13 @@
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(30px, 50px) rotate(10deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(30px, 50px) rotate(10deg);
+            }
         }
 
         /* --- 3. Scroll Progress Bar --- */
@@ -97,10 +118,14 @@
             padding: 0 2rem;
         }
 
-        img { max-width: 100%; height: auto; border-radius: var(--radius); }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+        }
 
         /* --- 4. Advanced Component Styles --- */
-        
+
         /* Glass Header */
         header {
             position: fixed;
@@ -137,8 +162,8 @@
         }
 
         /* Floating Island Navbar Design */
-        .nav-links { 
-            display: flex; 
+        .nav-links {
+            display: flex;
             list-style: none;
             position: absolute;
             left: 50%;
@@ -151,9 +176,11 @@
             backdrop-filter: blur(10px);
             gap: 0.2rem;
         }
-        
-        .nav-links li { margin: 0; }
-        
+
+        .nav-links li {
+            margin: 0;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-main);
@@ -166,14 +193,16 @@
             border-radius: 30px;
         }
 
-        .nav-links a::after { display: none; }
+        .nav-links a::after {
+            display: none;
+        }
 
-        .nav-links a:hover { 
+        .nav-links a:hover {
             color: var(--primary-color);
             background: rgba(0, 123, 255, 0.1);
             transform: translateY(-2px);
         }
-        
+
         .nav-links a.active {
             background: var(--primary-gradient);
             color: var(--white);
@@ -234,7 +263,8 @@
             position: relative;
         }
 
-        section p, section li {
+        section p,
+        section li {
             text-align: justify;
         }
 
@@ -251,7 +281,7 @@
             margin-right: auto;
             width: fit-content;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -263,8 +293,15 @@
         }
 
         /* --- 5. About Section (Home) --- */
-        .about-me { padding-top: 10rem; }
-        .about-content { display: flex; align-items: center; gap: 4rem; }
+        .about-me {
+            padding-top: 10rem;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
 
         .about-image {
             flex-basis: 40%;
@@ -275,7 +312,7 @@
             width: 100%;
             border-radius: 30px;
             box-shadow: var(--glass-shadow);
-            border: 5px solid rgba(255,255,255,0.8);
+            border: 5px solid rgba(255, 255, 255, 0.8);
             transition: transform 0.5s ease;
         }
 
@@ -294,22 +331,27 @@
             filter: blur(15px);
         }
 
-        .about-text { flex-basis: 60%; }
-        
+        .about-text {
+            flex-basis: 60%;
+        }
+
         .typewriter h3 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--text-main);
         }
-        
+
         .about-text p {
             font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 1.5rem;
         }
 
-        .social-icons { margin-top: 2rem; }
+        .social-icons {
+            margin-top: 2rem;
+        }
+
         .social-icons a {
             display: inline-flex;
             justify-content: center;
@@ -322,9 +364,10 @@
             margin-right: 1rem;
             font-size: 1.5rem;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
+
         .social-icons a:hover {
             background: var(--primary-gradient);
             color: var(--white);
@@ -375,7 +418,9 @@
             transition: transform 0.3s;
         }
 
-        .skill-item:hover i { transform: scale(1.2) rotate(5deg); }
+        .skill-item:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
 
         /* Timeline */
         .timeline {
@@ -400,10 +445,19 @@
             margin-bottom: 3rem;
             position: relative;
         }
-        
-        .timeline-content { width: 45%; position: relative; }
-        .timeline-item:nth-child(odd) .timeline-content { margin-left: auto; }
-        .timeline-item:nth-child(even) .timeline-content { margin-right: auto; }
+
+        .timeline-content {
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
 
         .timeline-dot {
             position: absolute;
@@ -429,8 +483,16 @@
             display: block;
         }
 
-        .timeline-content h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
-        .timeline-content .company { font-style: italic; color: var(--text-light); font-size: 0.95rem; }
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-content .company {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
 
         /* Qiskit Section */
         .qiskit-content {
@@ -439,7 +501,7 @@
             gap: 3rem;
             align-items: center;
         }
-        
+
         .qiskit-highlight {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             -webkit-background-clip: text;
@@ -470,12 +532,14 @@
             display: block;
         }
 
-        .qiskit-image-wrapper:hover img { transform: scale(1.05); }
+        .qiskit-image-wrapper:hover img {
+            transform: scale(1.05);
+        }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 2.5rem;
         }
 
@@ -485,18 +549,28 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .project-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
             background: var(--primary-gradient);
             transition: height 0.3s;
         }
 
-        .project-content { flex-grow: 1; }
-        .project-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-        
+        .project-content {
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
         .project-tags span {
             display: inline-block;
             background: rgba(0, 123, 255, 0.1);
@@ -508,7 +582,7 @@
             margin: 0.5rem 0.5rem 0 0;
             transition: background 0.3s;
         }
-        
+
         .project-card:hover .project-tags span {
             background: var(--primary-color);
             color: var(--white);
@@ -520,7 +594,7 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .contact-box {
             display: inline-flex;
             flex-direction: column;
@@ -547,7 +621,7 @@
             justify-content: center;
             color: var(--primary-color);
             font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer */
@@ -570,51 +644,373 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .skills-grid .skill-item:nth-child(2) { transition-delay: 0.1s; }
-        .skills-grid .skill-item:nth-child(3) { transition-delay: 0.2s; }
-        .skills-grid .skill-item:nth-child(4) { transition-delay: 0.3s; }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
+        .skills-grid .skill-item:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .skills-grid .skill-item:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .skills-grid .skill-item:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN (Flawlessly Mobile-First & Adaptive)
+           ========================================================================== */
+
+        /* Tablets & Smaller Laptops (<= 1150px) */
+        @media (max-width: 1150px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
-                right: 0; left: auto;
-                height: calc(100vh - 80px);
+                top: 70px;
+                right: 0;
+                left: auto;
+                transform: translateX(100%);
+                height: calc(100vh - 70px);
+                height: calc(100dvh - 70px);
                 width: 100%;
+                max-width: 360px;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0.4rem;
+                padding: 2rem 1.5rem;
+                border-radius: 0 0 0 20px;
+                border-left: 1px solid rgba(0, 123, 255, 0.15);
+                border-bottom: 1px solid rgba(0, 123, 255, 0.15);
+                box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.1);
+                transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                z-index: 1001;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+                margin: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1.25rem;
+                font-size: 1.05rem;
+                border-radius: 12px;
+                text-align: left;
+            }
+
+            .menu-toggle {
+                display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 2rem;
-                transform: translateX(100%);
-                transition: transform 0.4s ease;
-                border-radius: 0;
-                border: none;
-                box-shadow: none;
+                width: 44px;
+                height: 44px;
+            }
+
+            .logo {
+                z-index: 1002;
+            }
+        }
+
+        /* Tablets & Mobile (<= 768px) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            section {
+                padding: 4.5rem 0;
+            }
+
+            section p,
+            section li {
+                text-align: left;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 6vw, 2.3rem);
+                margin-bottom: 2.5rem;
+            }
+
+            /* About Section */
+            .about-me {
+                padding-top: 6.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .about-image {
+                flex-basis: 100%;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-text {
+                flex-basis: 100%;
+                width: 100%;
+            }
+
+            .typewriter h3 {
+                font-size: clamp(1.8rem, 5.5vw, 2.3rem);
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .social-icons a {
+                margin-right: 0;
+            }
+
+            /* Timeline (Experience & Education) - Fixes mobile overlap */
+            .timeline {
                 padding: 0;
             }
-            
-            .nav-links.active { transform: translateX(0); }
-            .menu-toggle { display: block; }
-            .logo { z-index: 1002; }
+
+            .timeline::before {
+                left: 18px;
+            }
+
+            .timeline-dot {
+                left: 18px;
+                transform: translateX(-50%);
+            }
+
+            .timeline-content {
+                width: calc(100% - 46px) !important;
+                margin-left: 46px !important;
+                margin-right: 0 !important;
+                padding: 1.5rem !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 46px !important;
+                margin-right: 0 !important;
+            }
+
+            /* Qiskit Section */
+            .qiskit-content {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .qiskit-images {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .qiskit-image-wrapper {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            /* Projects & Research */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            /* Contact */
+            .contact-content {
+                width: 100%;
+            }
+
+            .contact-box {
+                width: 100%;
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+                align-items: stretch;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.6rem;
+                word-break: break-word;
+            }
+
+            /* Technical Arsenal Map Mobile Adaptations */
+            .skills-map-wrapper {
+                height: 560px;
+            }
+
+            .map-skill-node {
+                padding: 5px 10px;
+                font-size: 0.72rem;
+                gap: 5px;
+            }
+
+            .map-skill-node i {
+                font-size: 0.95rem;
+            }
+
+            .map-sector-tag {
+                font-size: 0.68rem;
+                padding: 4px 10px;
+                letter-spacing: 1px;
+            }
+
+            /* Background floating shapes reduction on mobile */
+            .shape-1 {
+                width: 260px;
+                height: 260px;
+                filter: blur(50px);
+            }
+
+            .shape-2 {
+                width: 220px;
+                height: 220px;
+                filter: blur(50px);
+            }
+
+            .shape-3 {
+                display: none;
+            }
         }
 
-        @media (max-width: 768px) {
-            .about-content, .qiskit-content { flex-direction: column; text-align: center; }
-            .timeline::before { left: 20px; }
-            .timeline-content { width: 100%; padding-left: 50px; }
-            .timeline-item:nth-child(odd) .timeline-content, 
-            .timeline-item:nth-child(even) .timeline-content { margin-left: 0; }
-            .timeline-dot { left: 20px; }
-            
-            .contact-box { align-items: center; padding: 2rem; }
-            .contact-item { flex-direction: column; text-align: center; gap: 0.5rem; }
+        /* Extra Small Mobile Screens (<= 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 0.5rem 0;
+            }
+
+            nav.container {
+                height: 60px;
+            }
+
+            .nav-links {
+                top: 60px;
+                height: calc(100vh - 60px);
+                height: calc(100dvh - 60px);
+                max-width: 100%;
+                border-radius: 0;
+                padding: 1.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .about-me {
+                padding-top: 5.5rem;
+            }
+
+            .about-image {
+                max-width: 240px;
+            }
+
+            .typewriter h3 {
+                font-size: 1.65rem;
+            }
+
+            .timeline-content {
+                width: calc(100% - 36px) !important;
+                margin-left: 36px !important;
+                padding: 1.25rem 1rem !important;
+            }
+
+            .timeline::before,
+            .timeline-dot {
+                left: 12px;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.15rem;
+            }
+
+            .skills-map-wrapper {
+                height: 520px;
+            }
+
+            .map-skill-node {
+                padding: 4px 7px;
+                font-size: 0.64rem;
+                gap: 4px;
+                border-radius: 20px;
+            }
+
+            .map-skill-node i {
+                font-size: 0.8rem;
+            }
+
+            .map-sector-tag {
+                font-size: 0.58rem;
+                padding: 3px 8px;
+                letter-spacing: 0.6px;
+                gap: 4px;
+            }
+
+            .sector-languages {
+                top: 10px;
+                left: 10px;
+            }
+
+            .sector-frameworks {
+                top: 10px;
+                right: 10px;
+            }
+
+            .sector-tools {
+                bottom: 10px;
+                left: 10px;
+            }
+
+            .sector-quantum {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.75rem;
+            }
+
+            .contact-box {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-icon-box {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
         }
 
-        /* === TECHNICAL LANDSCAPE MAP (PRO) === */
+        /* === TECHNICAL ARSENAL MAP === */
         .skills-map-container {
             position: relative;
             width: 100%;
@@ -625,8 +1021,8 @@
         .skills-map-wrapper {
             position: relative;
             width: 100%;
-            height: 580px;
-            background: rgba(255, 255, 255, 0.4);
+            height: 640px;
+            background: rgba(255, 255, 255, 0.45);
             border-radius: var(--radius);
             border: var(--glass-border);
             box-shadow: inset 0 0 40px rgba(0, 123, 255, 0.05);
@@ -637,11 +1033,12 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 radial-gradient(rgba(0, 123, 255, 0.18) 1.5px, transparent 1.5px),
                 linear-gradient(rgba(0, 123, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 123, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
+            pointer-events: none;
         }
 
         .constellation-svg {
@@ -649,79 +1046,108 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
 
         .constellation-svg line {
-            stroke: rgba(0, 123, 255, 0.25);
+            stroke: rgba(0, 123, 255, 0.28);
             stroke-width: 1.5;
             stroke-dasharray: 6 4;
             animation: dash 30s linear infinite;
         }
 
         @keyframes dash {
-            to { stroke-dashoffset: -1000; }
+            to {
+                stroke-dashoffset: -1000;
+            }
         }
 
-        .map-continent-label {
+        .map-sector-tag {
             position: absolute;
-            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.76rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(0, 123, 255, 0.4);
+            letter-spacing: 1.5px;
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 123, 255, 0.18);
+            padding: 6px 14px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.05);
+            z-index: 3;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .sector-languages {
+            top: 20px;
+            left: 24px;
+        }
+
+        .sector-frameworks {
+            top: 20px;
+            right: 24px;
+        }
+
+        .sector-tools {
+            bottom: 20px;
+            left: 24px;
+        }
+
+        .sector-quantum {
+            bottom: 20px;
+            right: 24px;
         }
 
         .map-skill-node {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
+            gap: 8px;
+            padding: 7px 15px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
             transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
             z-index: 5;
-        }
-
-        .map-skill-node:hover {
-            transform: translate(-50%, -50%) scale(1.5);
-            background: var(--primary-gradient);
-            box-shadow: 0 10px 25px rgba(0,123,255,0.4);
+            user-select: none;
         }
 
         .map-skill-node i {
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        .map-skill-node:hover {
+            transform: translate(-50%, -50%) scale(1.12);
+            background: var(--primary-gradient);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.35);
+            z-index: 25;
         }
 
         .map-skill-node:hover i {
-            color: white;
-        }
-
-        .node-nameplate {
-            position: absolute;
-            bottom: -32px;
-            font-size: 0.7rem;
-            background: linear-gradient(135deg, #007bff, #00c6ff);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            opacity: 0;
-            transform: translateY(5px);
-            transition: 0.3s ease;
-            white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
-        }
-
-        .map-skill-node:hover .node-nameplate {
-            opacity: 1;
-            transform: translateY(0);
+            color: #ffffff;
         }
     </style>
 </head>
+
 <body>
 
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -759,11 +1185,15 @@
                     <div class="typewriter">
                         <h3>Hello! I'm <span style="color: var(--primary-color);">Rohith S</span></h3>
                     </div>
-                    <p>I am a passionate <strong>Full Stack Developer & Quantum Researcher</strong> specializing in building efficient, scalable applications and exploring quantum technologies. Currently pursuing my Integrated M.Tech in Computer Science at SSN College of Engineering.</p>
-                    <p>From developing international boat rental platforms to conducting research on physics-embedded liquid neural networks, I thrive on solving complex problems with modern technologies.</p>
-                    
+                    <p>I am a passionate <strong>Full Stack Developer & Quantum Researcher</strong> specializing in
+                        building efficient, scalable applications and exploring quantum technologies. Currently pursuing
+                        my Integrated M.Tech in Computer Science at SSN College of Engineering.</p>
+                    <p>From developing international boat rental platforms to conducting research on physics-embedded
+                        liquid neural networks, I thrive on solving complex problems with modern technologies.</p>
+
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:rohithoutlook.id@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -772,14 +1202,22 @@
 
         <section id="skills">
             <div class="container">
-                <h2 class="section-title reveal">Technical Landscape Map</h2>
+                <h2 class="section-title reveal">Technical Arsenal Map</h2>
                 <div class="skills-map-container reveal">
                     <div class="skills-map-wrapper" id="skillsMapLandscape">
                         <svg class="constellation-svg" id="constellationSvg"></svg>
-                        <div class="map-continent-label" style="top:10%;left:10%">Languages</div>
-                        <div class="map-continent-label" style="top:10%;right:10%">Frameworks</div>
-                        <div class="map-continent-label" style="bottom:10%;left:10%">Tools</div>
-                        <div class="map-continent-label" style="bottom:10%;right:10%">Hardware</div>
+                        <div class="map-sector-tag sector-languages">
+                            <i class="fas fa-code"></i> Languages
+                        </div>
+                        <div class="map-sector-tag sector-frameworks">
+                            <i class="fas fa-layer-group"></i> Frameworks
+                        </div>
+                        <div class="map-sector-tag sector-tools">
+                            <i class="fas fa-tools"></i> Tools & Cloud
+                        </div>
+                        <div class="map-sector-tag sector-quantum">
+                            <i class="fas fa-atom"></i> Quantum & Hardware
+                        </div>
                     </div>
                 </div>
             </div>
@@ -810,11 +1248,14 @@
             <div class="container">
                 <h2 class="section-title reveal">Research & Innovations</h2>
                 <div class="projects-grid reveal">
-                    
+
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Quantum Error Mitigation via PE-LINN</h3>
-                            <p>Developed an architectural framework to mitigate error rates in the NISQ (Noisy Intermediate-Scale Quantum) Era. By integrating a Physics-Embedded Liquid Neural Network model, this system maps out noise profiles dynamically to counteract qubit decoherence and gate infidelities.</p>
+                            <p>Developed an architectural framework to mitigate error rates in the NISQ (Noisy
+                                Intermediate-Scale Quantum) Era. By integrating a Physics-Embedded Liquid Neural Network
+                                model, this system maps out noise profiles dynamically to counteract qubit decoherence
+                                and gate infidelities.</p>
                             <div class="project-tags">
                                 <span>Quantum AI</span>
                                 <span>NISQ Hardware</span>
@@ -827,7 +1268,10 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Evaluating Generative Quantum Advantage</h3>
-                            <p>Conducted a detailed, full-stack empirical study examining classical-to-quantum Generative Adversarial Network (GAN) architectures executed on real noisy quantum hardware. Investigated parameter-expressibility gaps and structural training speedups inherent to hybrid variational quantum circuits.</p>
+                            <p>Conducted a detailed, full-stack empirical study examining classical-to-quantum
+                                Generative Adversarial Network (GAN) architectures executed on real noisy quantum
+                                hardware. Investigated parameter-expressibility gaps and structural training speedups
+                                inherent to hybrid variational quantum circuits.</p>
                             <div class="project-tags">
                                 <span>Quantum ML</span>
                                 <span>GAN Architectures</span>
@@ -840,7 +1284,10 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Neural Text-to-Piclo Translation</h3>
-                            <p>Built an end-to-end Neural Machine Translation (NMT) pipeline translating natural English strings directly into descriptive pictogram sequences by fine-tuning a BART model (139M parameters). Optimized tokenization sequences to improve cross-domain communication accuracy for AAC users.</p>
+                            <p>Built an end-to-end Neural Machine Translation (NMT) pipeline translating natural English
+                                strings directly into descriptive pictogram sequences by fine-tuning a BART model (139M
+                                parameters). Optimized tokenization sequences to improve cross-domain communication
+                                accuracy for AAC users.</p>
                             <div class="project-tags">
                                 <span>NLP / NMT</span>
                                 <span>BART Fine-Tuning</span>
@@ -853,7 +1300,10 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">UAV Smart Autonomous Navigation</h3>
-                            <p>Researching adaptive path-planning mathematical algorithms and edge collision-avoidance logic tailored for small Unmanned Aerial Vehicles (drones). The execution framework isolates minimal sensor-fusion pipelines to enable rapid inference directly on resource-constrained hardware.</p>
+                            <p>Researching adaptive path-planning mathematical algorithms and edge collision-avoidance
+                                logic tailored for small Unmanned Aerial Vehicles (drones). The execution framework
+                                isolates minimal sensor-fusion pipelines to enable rapid inference directly on
+                                resource-constrained hardware.</p>
                             <div class="project-tags">
                                 <span>Robotics</span>
                                 <span>Path Planning</span>
@@ -863,10 +1313,13 @@
                         </div>
                     </div>
 
-                        <div class="project-card glass-card">
+                    <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Smart Medicinal Kit</h3>
-                            <p>Engineered an assistive IoT health-tech platform aimed at addressing the daily healthcare schedules of elderly and visually impaired individuals. Integrates precise automated schedules, auditory tracking buzzers, and a companion application layer for distributed monitoring.</p>
+                            <p>Engineered an assistive IoT health-tech platform aimed at addressing the daily healthcare
+                                schedules of elderly and visually impaired individuals. Integrates precise automated
+                                schedules, auditory tracking buzzers, and a companion application layer for distributed
+                                monitoring.</p>
                             <div class="project-tags">
                                 <span>Healthcare Technology</span>
                                 <span>Assistive Tech</span>
@@ -886,9 +1339,14 @@
                 <div class="qiskit-content reveal">
                     <div class="qiskit-text">
                         <h3>Empowering the <span class="qiskit-highlight">Quantum Future</span></h3>
-                        <p>I am a proud <strong>Qiskit Advocate</strong>, recognized by IBM Quantum for my contributions to the global quantum computing community. This role connects me with elite researchers and developers driving the future of quantum technology.</p>
-                        <p>My journey includes earning the prestigious <strong>Quantum Excellence (Advanced) Badge</strong> by mastering complex algorithms and labs during the Qiskit Global Summer School.</p>
-                        <a href="https://qiskit.org/advocates/" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">View Program</a>
+                        <p>I am a proud <strong>Qiskit Advocate</strong>, recognized by IBM Quantum for my contributions
+                            to the global quantum computing community. This role connects me with elite researchers and
+                            developers driving the future of quantum technology.</p>
+                        <p>My journey includes earning the prestigious <strong>Quantum Excellence (Advanced)
+                                Badge</strong> by mastering complex algorithms and labs during the Qiskit Global Summer
+                            School.</p>
+                        <a href="https://qiskit.org/advocates/" target="_blank" class="btn btn-primary"
+                            style="margin-top: 1rem;">View Program</a>
                     </div>
                     <div class="qiskit-images">
                         <div class="qiskit-image-wrapper">
@@ -903,13 +1361,14 @@
             <div class="container">
                 <h2 class="section-title reveal">Featured Projects</h2>
                 <div class="projects-grid reveal">
-                    
+
 
 
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Groundwater Predictor</h3>
-                            <p>Mobile AI application utilizing innovative ELM + Booster models to accurately predict groundwater levels and quality analysis.</p>
+                            <p>Mobile AI application utilizing innovative ELM + Booster models to accurately predict
+                                groundwater levels and quality analysis.</p>
                             <div class="project-tags">
                                 <span>Mobile AI</span>
                                 <span>Machine Learning</span>
@@ -921,7 +1380,8 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Boat Rental Platform</h3>
-                            <p>End-to-end full stack solution for an international client. Handles bookings, fleet management, and payments.</p>
+                            <p>End-to-end full stack solution for an international client. Handles bookings, fleet
+                                management, and payments.</p>
                             <div class="project-tags">
                                 <span>NextJS</span>
                                 <span>NodeJS</span>
@@ -933,7 +1393,8 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Online Meeting App</h3>
-                            <p><strong>National Hackathon Winner.</strong> A lightweight video conferencing tool designed to eliminate latency issues in traditional apps.</p>
+                            <p><strong>National Hackathon Winner.</strong> A lightweight video conferencing tool
+                                designed to eliminate latency issues in traditional apps.</p>
                             <div class="project-tags">
                                 <span>WebRTC</span>
                                 <span>Socket.io</span>
@@ -945,7 +1406,8 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">Corporate Workflow App</h3>
-                            <p>Suite of three mobile applications developed using Kotlin and Flutter to streamline employee management and tasks.</p>
+                            <p>Suite of three mobile applications developed using Kotlin and Flutter to streamline
+                                employee management and tasks.</p>
                             <div class="project-tags">
                                 <span>Flutter</span>
                                 <span>Kotlin</span>
@@ -957,7 +1419,8 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">IoT Leap Controller</h3>
-                            <p>Hardware integration projects using Arduino, featuring a Leap Motion controller and automated agricultural systems.</p>
+                            <p>Hardware integration projects using Arduino, featuring a Leap Motion controller and
+                                automated agricultural systems.</p>
                             <div class="project-tags">
                                 <span>Arduino</span>
                                 <span>C++</span>
@@ -969,7 +1432,8 @@
                     <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">ATS Friendly Resume Generator</h3>
-                            <p>A comprehensive full-stack enterprise application built to optimize candidates' resumes.</p>
+                            <p>A comprehensive full-stack enterprise application built to optimize candidates' resumes.
+                            </p>
                             <div class="project-tags">
                                 <span>Full Stack</span>
                                 <span>AI Processing</span>
@@ -978,10 +1442,11 @@
                         </div>
                     </div>
 
-                        <div class="project-card glass-card">
+                    <div class="project-card glass-card">
                         <div class="project-content">
                             <h3 class="project-title">SPB MHSS Portal</h3>
-                            <p>Interactive educational platform built with ReactJS, featuring dynamic scheduling, event galleries, and admin controls.</p>
+                            <p>Interactive educational platform built with ReactJS, featuring dynamic scheduling, event
+                                galleries, and admin controls.</p>
                             <div class="project-tags">
                                 <span>ReactJS</span>
                                 <span>Firebase</span>
@@ -1034,11 +1499,13 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon-box"><i class="fab fa-linkedin-in"></i></div>
-                            <a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank" style="color:inherit; text-decoration:none;">linkedin.com/in/rohtihoutlook</a>
+                            <a href="https://www.linkedin.com/in/rohtihoutlook" target="_blank"
+                                style="color:inherit; text-decoration:none;">linkedin.com/in/rohtihoutlook</a>
                         </div>
-                        
+
                         <div style="margin-top: 1rem; width: 100%;">
-                            <a href="mailto:rohithoutlook.id@gmail.com" class="btn btn-primary" style="width: 100%; text-align: center;">Send an Email</a>
+                            <a href="mailto:rohithoutlook.id@gmail.com" class="btn btn-primary"
+                                style="width: 100%; text-align: center;">Send an Email</a>
                         </div>
                     </div>
                 </div>
@@ -1060,12 +1527,51 @@
             const allNavLinks = document.querySelectorAll('.nav-links li a');
             const scrollProgress = document.getElementById('scrollProgress');
 
-            // 1. Mobile Menu
-            menuToggle.addEventListener('click', () => {
+            // 1. Mobile Menu Toggle
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
                 navLinks.classList.toggle('active');
                 const icon = menuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+
+            // Close menu on click outside
+            document.addEventListener('click', (e) => {
+                if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                }
+            });
+
+            // Close menu on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                }
+            });
+
+            // Reset menu on resize to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1150 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                }
             });
 
             // 2. Smooth Scroll & Close Menu
@@ -1074,8 +1580,8 @@
                     e.preventDefault();
                     const targetId = link.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
-                    
-                    if(targetSection) {
+
+                    if (targetSection) {
                         const headerHeight = header.offsetHeight;
                         const elementPosition = targetSection.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
@@ -1088,8 +1594,11 @@
 
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
-                        menuToggle.querySelector('i').classList.add('fa-bars');
-                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        const icon = menuToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
                     }
                 });
             });
@@ -1120,7 +1629,7 @@
 
             // 4. Reveal on Scroll Animation
             const revealElements = document.querySelectorAll('.reveal');
-            
+
             const revealOnScroll = () => {
                 const windowHeight = window.innerHeight;
                 const elementVisible = 150;
@@ -1137,42 +1646,48 @@
             revealOnScroll();
         });
 
-        // === SKILL MAP ENGINE ===
+        // === TECHNICAL ARSENAL MAP ENGINE ===
         const mapNodes = [
-            { id: 'python', name: 'Python', icon: 'fab fa-python', top: 18, left: 12 },
-            { id: 'c', name: 'C', icon: 'fas fa-code', top: 30, left: 8 },
-            { id: 'cpp', name: 'C++', icon: 'fas fa-code', top: 42, left: 12 },
-            { id: 'js', name: 'JavaScript', icon: 'fab fa-js', top: 25, left: 22 },
-            { id: 'html', name: 'HTML', icon: 'fab fa-html5', top: 38, left: 22 },
-            { id: 'css', name: 'CSS', icon: 'fab fa-css3-alt', top: 50, left: 18 },
+            // Sector 1: Languages (Top-Left)
+            { id: 'python', name: 'Python', icon: 'fab fa-python', top: 16, left: 20 },
+            { id: 'c', name: 'C', icon: 'fas fa-code', top: 27, left: 11 },
+            { id: 'cpp', name: 'C++', icon: 'fas fa-code', top: 38, left: 13 },
+            { id: 'js', name: 'JavaScript', icon: 'fab fa-js', top: 20, left: 38 },
+            { id: 'html', name: 'HTML5', icon: 'fab fa-html5', top: 32, left: 32 },
+            { id: 'css', name: 'CSS3', icon: 'fab fa-css3-alt', top: 44, left: 37 },
 
-            { id: 'react', name: 'ReactJS', icon: 'fab fa-react', top: 15, left: 72 },
-            { id: 'next', name: 'NextJS', icon: 'fas fa-forward', top: 28, left: 82 },
-            { id: 'node', name: 'NodeJS', icon: 'fab fa-node-js', top: 35, left: 70 },
-            { id: 'express', name: 'ExpressJS', icon: 'fas fa-server', top: 48, left: 82 },
-            { id: 'flutter', name: 'Flutter', icon: 'fas fa-mobile-alt', top: 45, left: 65 },
-            { id: 'kotlin', name: 'Kotlin', icon: 'fas fa-code', top: 60, left: 75 },
+            // Sector 2: Frameworks & Libs (Top-Right)
+            { id: 'react', name: 'ReactJS', icon: 'fab fa-react', top: 16, left: 63 },
+            { id: 'next', name: 'NextJS', icon: 'fas fa-forward', top: 20, left: 84 },
+            { id: 'node', name: 'NodeJS', icon: 'fab fa-node-js', top: 29, left: 63 },
+            { id: 'express', name: 'ExpressJS', icon: 'fas fa-server', top: 33, left: 84 },
+            { id: 'flutter', name: 'Flutter', icon: 'fas fa-mobile-alt', top: 42, left: 65 },
+            { id: 'kotlin', name: 'Kotlin', icon: 'fas fa-code', top: 46, left: 86 },
 
-            { id: 'qiskit', name: 'Qiskit', icon: 'fas fa-atom', top: 70, left: 15 },
-            { id: 'git', name: 'Git', icon: 'fab fa-git-alt', top: 80, left: 25 },
-            { id: 'arduinoide', name: 'Arduino IDE', icon: 'fas fa-microchip', top: 65, left: 28 },
-            { id: 'linux', name: 'Linux', icon: 'fab fa-linux', top: 85, left: 12 },
-            { id: 'aws', name: 'AWS', icon: 'fab fa-aws', top: 75, left: 35 },
-            { id: 'mongo', name: 'MongoDB', icon: 'fas fa-database', top: 88, left: 35 },
-            { id: 'oracle', name: 'Oracle', icon: 'fas fa-database', top: 78, left: 5 },
+            // Sector 3: Tools & Cloud (Bottom-Left)
+            { id: 'linux', name: 'Linux', icon: 'fab fa-linux', top: 58, left: 14 },
+            { id: 'git', name: 'Git', icon: 'fab fa-git-alt', top: 60, left: 36 },
+            { id: 'aws', name: 'AWS', icon: 'fab fa-aws', top: 71, left: 16 },
+            { id: 'mongo', name: 'MongoDB', icon: 'fas fa-database', top: 73, left: 38 },
+            { id: 'oracle', name: 'Oracle', icon: 'fas fa-database', top: 84, left: 20 },
+            { id: 'arduinoide', name: 'Arduino IDE', icon: 'fas fa-microchip', top: 85, left: 40 },
 
-            { id: 'arduino', name: 'Arduino', icon: 'fas fa-microchip', top: 70, left: 70 },
-            { id: 'stm', name: 'STM Boards', icon: 'fas fa-microchip', top: 82, left: 82 },
-            { id: 'ibm', name: 'IBM Quantum', icon: 'fas fa-brain', top: 88, left: 65 }
+            // Sector 4: Quantum & Hardware (Bottom-Right)
+            { id: 'qiskit', name: 'Qiskit', icon: 'fas fa-atom', top: 58, left: 63 },
+            { id: 'ibm', name: 'IBM Quantum', icon: 'fas fa-brain', top: 60, left: 84 },
+            { id: 'arduino', name: 'Arduino', icon: 'fas fa-microchip', top: 73, left: 65 },
+            { id: 'stm', name: 'STM Boards', icon: 'fas fa-microchip', top: 75, left: 85 }
         ];
 
         const links = [
-            ['js','react'], ['react','next'], ['node','express'],
-            ['js','node'], ['html','react'], ['css','react'],
-            ['node','mongo'], ['mongo','aws'], ['aws','oracle'],
-            ['git','react'], ['linux','node'], ['qiskit','ibm'],
-            ['arduino','node'], ['stm','arduino'], ['ibm','python'],
-            ['python','qiskit'], ['cpp','arduino'], ['c','stm']
+            ['js', 'react'], ['react', 'next'], ['node', 'express'],
+            ['js', 'node'], ['html', 'css'], ['html', 'react'],
+            ['node', 'mongo'], ['mongo', 'aws'], ['aws', 'oracle'],
+            ['git', 'linux'], ['linux', 'node'], ['qiskit', 'ibm'],
+            ['arduino', 'stm'], ['ibm', 'qiskit'],
+            ['python', 'qiskit'], ['python', 'linux'],
+            ['cpp', 'arduino'], ['c', 'stm'], ['arduinoide', 'arduino'],
+            ['flutter', 'kotlin']
         ];
 
         const landscape = document.getElementById("skillsMapLandscape");
@@ -1185,12 +1700,12 @@
             div.style.left = node.left + "%";
             div.innerHTML = `
                 <i class="${node.icon}"></i>
-                <div class="node-nameplate">${node.name}</div>
+                <span>${node.name}</span>
             `;
             landscape.appendChild(div);
         });
 
-        links.forEach(([a,b]) => {
+        links.forEach(([a, b]) => {
             const n1 = mapNodes.find(n => n.id === a);
             const n2 = mapNodes.find(n => n.id === b);
             if (!n1 || !n2) return;
@@ -1204,4 +1719,5 @@
         });
     </script>
 </body>
+
 </html>
